@@ -1,0 +1,58 @@
+# MyProject
+
+This project is focused on analyzing liquid variation along with five other variables to uncover patterns and insights related to covariation. The analysis includes data preprocessing, exploratory data analysis, modeling, and result visualization.
+
+## Project Structure
+
+- `data/`: Contains raw data files and cleaned data in `.rds` format. (Currently, raw data is loaded from a direct path; will be added here later.)
+  - `cleaned_data/`: Stores cleaned dataframes as `.rds` files.
+  - `token_counts/`: Contains token count `.tex` files for use in LaTeX documents.
+- `scripts/`: Includes R scripts for data preprocessing, analysis, and visualization.
+  - `data_preprocessing/`: Scripts for loading, cleaning, and processing data.
+  - `generate_counts.R`: Script to calculate and save token counts.
+- `output/`: Stores generated outputs such as plots, tables, and reports.
+- `docs/`: Contains documentation and R Markdown files.
+  - `project_overview.Rmd`: The main R Markdown file that integrates all parts of the project.
+- `R/`: Custom R functions used in the analysis.
+- `LVC_dissertation_Master.Rproj`: The R Project file.
+
+## How to Use This Project
+
+### Prerequisites
+- R version 4.0 or higher
+- RStudio (optional but recommended)
+- Required R packages: `dplyr`, `ggplot2`, `tidyr`, `readr`, `scales`, etc.
+
+### Running the Analysis
+1. Open `LVC_dissertation_Master.Rproj` in RStudio.
+2. Load necessary packages by running `scripts/load_packages.R`.
+3. Load and preprocess data:
+   - Run the data preprocessing scripts located in `scripts/data_preprocessing/` to clean and organize the data.
+   - Optionally, run `scripts/generate_counts.R` to generate token counts for use in LaTeX documents.
+4. Load the cleaned data by running `scripts/load_cleaned_dataframes.R`.
+5. Open `docs/project_overview.Rmd`.
+6. Knit the R Markdown file to generate the final report.
+
+## Recap of Project Workflow
+
+1. **Data Loading and Preprocessing**:
+   - **`project_overview.Rmd`**: Orchestrates the entire workflow, from loading packages and raw data to data cleaning and optional count generation.
+   - **`load_packages.R`**: Ensures all required packages are loaded.
+   - **`load_main_dataframes.R`**: Loads the raw data into R.
+   - **Data Cleaning Scripts**:
+     - `clean_s.R`: Cleans and processes the `s` dataframe.
+     - `clean_fps.R`: Cleans and processes the `fps` dataframe.
+     - `clean_pronouns.R`: Cleans and processes the `pronouns` dataframe.
+     - `clean_subject_position.R`: Cleans and processes the `subject_position` dataframe.
+     - `clean_liquids.R`: Cleans and processes the `liquids` dataframe.
+   - **`mutate_country_of_origin.R`**: Custom function used in the cleaning scripts to standardize the `COUNTRY_OF_ORIGIN` variable.
+   - **Saving Cleaned Data**: Each cleaned dataframe is saved as an `.rds` file in `data/cleaned_data/` for easy reuse.
+
+2. **Data Count Generation**:
+   - **`generate_counts.R`**: Loads the cleaned dataframes, calculates various counts, and saves them as `.tex` files with formatted numbers (including commas) for use in LaTeX documents. The counts are stored in `data/token_counts/`.
+
+3. **Loading Cleaned Data for Analysis**:
+   - **`load_cleaned_dataframes.R`**: Loads the cleaned dataframes into the environment, ready for statistical analysis. It also loads individual dataframes for different phonological forms within the `liquids` dataset.
+
+## Results
+*To be added later, if needed.*

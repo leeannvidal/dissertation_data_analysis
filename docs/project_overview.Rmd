@@ -1,0 +1,427 @@
+---
+title: "Dissertation Statistics Overview"
+author: "Lee-Ann Vidal Covas"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Introduction
+
+Add something here if I want to give ppl access to the project
+
+# Data Loading and Preprocessing (original Dataframes)
+```{r data-loading-preprocessing, include=FALSE}
+# Load data and any preprocessing steps
+
+# source("scripts/load_packages.R")
+# source("scripts/data_preprocessing/load_main_dataframes.R")
+
+
+# # socio_df <- read.table("/Users/leeannvidal/Desktop/Dissertation/data/dataframes/Social_Data/Spanish in Boston Master Spreadsheet.txt", sep = "\t", header = TRUE)
+# #Drop name columns from socio df
+# socio_df <- select(socio_df, c(SPEAKER, PSEUDONYM:PERCENT_DOMAINS_USE_SPAN_LITTLE))
+# 
+# write_excel_csv(socio_df, "/Users/leeannvidal/Desktop/Dissertation/data/dataframes/Social_Data/SIB_Socio_Anonymized.csv")
+
+
+# Load data cleaning functions
+source("functions/mutate_country_of_origin.R")
+
+# Clean and wrangle data frames
+# source("scripts/data_preprocessing/clean_s.R")
+# source("scripts/data_preprocessing/clean_fps.R")
+# source("scripts/data_preprocessing/clean_pronouns.R")
+# source("scripts/data_preprocessing/clean_subject_position.R")
+# source("scripts/data_preprocessing/clean_liquids.R")
+# 
+# # Optionally generate counts
+# source("scripts/data_preprocessing/generate_counts.R")
+
+```
+
+#Data loading for Statistical Analysis
+```{r clean-data-loading-preprocessing, include=FALSE}
+# Load cleaned dataframes
+
+source("scripts/load_packages.R")
+source("scripts/load_cleaned_dataframes.R")
+
+# Add Charis Fonts (fonts with IPA)
+source("scripts/initialize_fonts.R")
+
+```
+
+## Load Functions for Visuals
+```{r load-functions-for-visualizations, include=FALSE}
+
+source("functions/chi_squared_labels.R")
+source("functions/pearson_correlation_coefficient_labels.R")
+
+# source("functions/regression_labels.R")
+source("functions/add_name_stat.R") # updates facet labels with a selected statistic (standard deviation, mean, or count) for a specified category.
+source("functions/custom_color_palette.R") # to create the custom color palette with greens
+source("functions/mutate_country_of_origin.R") # to change el_dr to dr
+source("functions/basic_custom_theme.R")
+source("functions/Create_Table_Function.R") # to create model summary tables for LaTeX
+source("functions/model_summary_labels_for_visuals.R") # to add beta and pvalue in visuals
+source("functions/variable_names_for_rows.R") #load vector with names of variables to be used with table and visual functions
+source("functions/names_for_columns.R") #load vector with names of columns to be used with AIC visuals
+
+
+```
+
+```{r Monkeywork-liquids, include=FALSE}
+
+### Anything code that needs to run to wrangle data for stats or visuals that is for all liquids goes here
+
+# Add column with total count for each liquid to use as variable label
+source("scripts/visuals/liquids/all_liquids/create_label_with_count_for_main_liquids_df.R")
+
+# Reorder factor levels
+source("scripts/visuals/liquids/reorder_factor_levels_liquids.R")
+
+# Calculate Speaker Level Mismatch Rates - to use with Contact measures 
+source("scripts/visuals/liquids/all_liquids/calculate_speaker_level_mismatch_rates.R")
+
+### Pre-processing of individual liquids
+
+# Trills
+
+source("scripts/data_preprocessing/preprocess_trills.R")
+
+# Taps
+
+source("scripts/data_preprocessing/preprocess_taps.R")
+
+# Laterals
+
+source("scripts/data_preprocessing/preprocess_laterals.R")
+
+
+```
+
+# Descriptive Tables for Methodology
+```{r eval=FALSE, include=FALSE}
+#Only run this if something needs to be changed with the tables in LaTeX. Some manual adjustments will need to be done in LaTeX
+
+#Load and generate LaTeX table with examples of Acoustic Measurements
+  #Note: This table uses a random sample so it will not generate the exact same values every single time
+# source("scripts/descriptive_tables/acoustic_tbl_dissertation.R")
+
+#Load and generate LaTeX table with Description of Speakers in Study
+# source("scripts/descriptive_tables/dem_tbl_dissertation.R")
+
+```
+
+# Basic Descriptive Visuals
+
+## SIB Proportional Distribution
+```{r load-visuals-SIB-variables-proportion-distribution, echo=FALSE}
+# Load and generate the Coda S visual
+source("scripts/visuals/coda_s/coda_s_proportion_distribution.R")
+
+# Load and generate the Pronouns visual
+source("scripts/visuals/pronouns/pronouns_proportion_distribution.R")
+
+# Load and generate the Subject Position Pronouns visual
+source("scripts/visuals/subject_position/pronoun_subject_position_proportion_distribution.R")
+
+# Load and generate the General Subject Position visual
+source("scripts/visuals/subject_position/general_subject_position_proportion_distribution.R")
+
+# Load and generate the Filled Pauses visual
+source("scripts/visuals/filled_pauses/filled_pauses_proportion_distribution.R")
+
+```
+
+## Descriptive Statistics - Liquids
+
+
+```{r general-overview-all-liquids, echo=FALSE}
+
+
+# Load and generate descriptive visual that shows Rates of Phonological and Phonetic Match and Mismatch tokens for each liquid
+source("scripts/visuals/liquids/all_liquids/liquids_distribution_agreement_proportions.R")
+# Load and generate Rates of Surface Form per Phono Form visual
+source("scripts/visuals/liquids/all_liquids/liquid_distribution_surface_forms.R")
+
+```
+
+
+# Perform data analysis
+
+## Liquids
+
+### Lateral
+
+#### LX Factors
+```{r lateral-lx-factors}
+
+# Position in Word
+source("scripts/visuals/liquids/lateral/position_in_word_match_lateral.R")
+
+#Position in Syllable (ALL ARE ONSETS for lateral)
+
+# Previous Sound Category
+source("scripts/visuals/liquids/lateral/previous_sound_category_match_lateral.R")
+
+# Following Sound Category (ALL ARE VOWELS for lateral)
+
+# Syllable Type
+source("scripts/visuals/liquids/lateral/syllable_type_match_lateral.R")
+
+# Syllable Stress
+source("scripts/visuals/liquids/lateral/syllable_stress_match_lateral.R")
+
+# Word Class
+source("scripts/visuals/liquids/lateral/word_class_match_lateral.R")
+
+# Log Lexical Frequency
+source("scripts/visuals/liquids/lateral/log_frequency_x_mismatch_lateral.R")
+
+# Speech Rate
+
+
+```
+#### Social Factors
+
+```{r lateral-social-factors}
+
+# Country of Origin
+source("scripts/visuals/liquids/lateral/country_of_origin_match_lateral.R")
+
+# SEX
+source("scripts/visuals/liquids/lateral/sex_match_lateral.R")
+
+# IMMIGRATION CATEGORY
+source("scripts/visuals/liquids/lateral/immigration_category_match_lateral.R")
+```
+
+
+### Tap
+
+#### LX Factors
+```{r tap-lx-factors}
+
+# Position in Word
+source("scripts/visuals/liquids/tap/position_in_word_match_tap.R")
+
+#Position in Syllable
+
+# Previous Sound Category
+source("scripts/visuals/liquids/tap/previous_sound_category_match_tap.R")
+
+# Following Sound Category
+
+# Syllable Type
+source("scripts/visuals/liquids/tap/syllable_type_match_tap.R")
+
+# Syllable Stress
+source("scripts/visuals/liquids/tap/syllable_stress_match_tap.R")
+
+# Word Class
+source("scripts/visuals/liquids/tap/word_class_match_tap.R")
+
+# Log Lexical Frequency
+source("scripts/visuals/liquids/tap/log_frequency_x_mismatch_tap.R")
+
+# Speech Rate
+
+
+```
+#### Social Factors
+
+```{r tap-social-factors}
+
+# Country of Origin
+source("scripts/visuals/liquids/tap/country_of_origin_match_tap.R")
+
+# SEX
+source("scripts/visuals/liquids/tap/sex_match_tap.R")
+
+# IMMIGRATION CATEGORY
+source("scripts/visuals/liquids/tap/immigration_category_match_tap.R")
+```
+
+
+### Trill
+
+#### LX Factors
+```{r trill-lx-factors}
+
+# Position in Word
+source("scripts/visuals/liquids/trill/position_in_word_match_trill.R")
+
+#Position in Syllable (ALL ARE ONSETS for trill)
+
+# Previous Sound Category
+source("scripts/visuals/liquids/trill/previous_sound_category_match_trill.R")
+
+# Following Sound Category (ALL ARE VOWELS for trill)
+
+# Syllable Type
+source("scripts/visuals/liquids/trill/syllable_type_match_trill.R")
+
+# Syllable Stress
+source("scripts/visuals/liquids/trill/syllable_stress_match_trill.R")
+
+# Word Class
+source("scripts/visuals/liquids/trill/word_class_match_trill.R")
+
+# Log Lexical Frequency
+source("scripts/visuals/liquids/trill/log_frequency_x_mismatch_trill.R")
+
+# Speech Rate
+
+
+```
+
+#### Social Factors
+
+```{r trill-social-factors}
+
+# Country of Origin
+source("scripts/visuals/liquids/trill/country_of_origin_match_trill.R")
+
+# SEX
+source("scripts/visuals/liquids/trill/sex_match_trill.R")
+
+# IMMIGRATION CATEGORY
+source("scripts/visuals/liquids/trill/immigration_category_match_trill.R")
+```
+
+#### Multi-variate Analysis
+
+```{r}
+# Variable names
+source("scripts/statistical_analysis/regressions/liquids/variable_names_for_rows_liquids.R")
+```
+
+```{r trill-multivariate-analysis, echo=FALSE}
+
+# ONCE THIS IM DONE PLAYING WITH THIS, CREATE A SCRIPT FOR IT TO KEEP IT TIDY
+model_liquids_trill <- glmer(MATCH ~ PERCENT_INTL_ENG_ONLY + LOG_LEX_FREQ_DF_N + SPEECH_RATE_MS + POS_WORD + VOWEL_HEIGHT_FOLL + VOWEL_DISP_FOLL + STRESS + SEX + COUNTRY_OF_ORIGIN + (1 | SPEAKER), family = binomial, data = trill)
+
+#Different Summaries
+summary(model_liquids_trill)
+Anova(model_liquids_trill, type = "II") #The Anova() function provides Type II or Type III Wald chi-square tests for each of the predictors
+
+library(broom.mixed) # The broom.mixed package, an extension of the broom package, can be used to create tidy data frames from mixed models, which include the estimated coefficients and p-values.
+tidy_model <- tidy(model_liquids_trill, effects = "fixed") #The tidy() function will you a clean data frame with the model coefficients, standard errors, z-values, and p-values.
+print(tidy_model)
+
+confint(model_liquids_trill)
+
+# Check for multicollinearity - Generally, VIF values above 5 (or sometimes 10) indicate problematic multicollinearity, so values being around or below 2 suggests that the predictors are not highly correlated with each other.
+library(car)
+vif(model_liquids_trill)
+
+trill$PERCENT_INTL_SPAN_ONLY
+```
+
+### Contact Measures
+```{r contact-measures}
+## LATERAL 
+# PLUS
+source("scripts/visuals/liquids/lateral/PLUS_x_Mismatch_Rate_lateral.R")
+source("scripts/visuals/liquids/lateral/PLUS_x_Mismatch_Rate_DR_lateral.R")
+source("scripts/visuals/liquids/lateral/PLUS_x_Mismatch_Rate_PR_lateral.R")
+
+
+# Percent English Only w Interlocutor
+source("scripts/visuals/liquids/lateral/Percent_English_Interlocutor_x_Mismatch_Rate_lateral.R")
+source("scripts/visuals/liquids/lateral/Percent_English_Interlocutor_x_Mismatch_Rate_DR_lateral.R")
+source("scripts/visuals/liquids/lateral/Percent_English_Interlocutor_x_Mismatch_Rate_PR_lateral.R")
+
+
+# Percent Spanish Only with Interlocutor
+source("scripts/visuals/liquids/lateral/Percent_Spanish_Interlocutor_x_Mismatch_Rate_lateral.R")
+source("scripts/visuals/liquids/lateral/Percent_Spanish_Interlocutor_x_Mismatch_Rate_DR_lateral.R")
+source("scripts/visuals/liquids/lateral/Percent_Spanish_Interlocutor_x_Mismatch_Rate_PR_lateral.R")
+
+## TAP
+
+# PLUS
+source("scripts/visuals/liquids/tap/PLUS_x_Mismatch_Rate_tap.R")
+source("scripts/visuals/liquids/tap/PLUS_x_Mismatch_Rate_DR_tap.R")
+source("scripts/visuals/liquids/tap/PLUS_x_Mismatch_Rate_PR_tap.R")
+
+
+# Percent English Only w Interlocutor
+source("scripts/visuals/liquids/tap/Percent_English_Interlocutor_x_Mismatch_Rate_tap.R")
+source("scripts/visuals/liquids/tap/Percent_English_Interlocutor_x_Mismatch_Rate_DR_tap.R")
+source("scripts/visuals/liquids/tap/Percent_English_Interlocutor_x_Mismatch_Rate_PR_tap.R")
+
+
+# Percent Spanish Only with Interlocutor
+source("scripts/visuals/liquids/tap/Percent_Spanish_Interlocutor_x_Mismatch_Rate_tap.R")
+source("scripts/visuals/liquids/tap/Percent_Spanish_Interlocutor_x_Mismatch_Rate_DR_tap.R")
+source("scripts/visuals/liquids/tap/Percent_Spanish_Interlocutor_x_Mismatch_Rate_PR_tap.R")
+
+
+## TRILL
+
+# PLUS
+source("scripts/visuals/liquids/trill/PLUS_x_Mismatch_Rate_trill.R")
+source("scripts/visuals/liquids/trill/PLUS_x_Mismatch_Rate_DR_trill.R")
+source("scripts/visuals/liquids/trill/PLUS_x_Mismatch_Rate_PR_trill.R")
+
+
+# Percent English Only w Interlocutor
+source("scripts/visuals/liquids/trill/Percent_English_Interlocutor_x_Mismatch_Rate_trill.R")
+source("scripts/visuals/liquids/trill/Percent_English_Interlocutor_x_Mismatch_Rate_DR_trill.R")
+source("scripts/visuals/liquids/trill/Percent_English_Interlocutor_x_Mismatch_Rate_PR_trill.R")
+
+
+# Percent Spanish Only with Interlocutor
+source("scripts/visuals/liquids/trill/Percent_Spanish_Interlocutor_x_Mismatch_Rate_trill.R")
+source("scripts/visuals/liquids/trill/Percent_Spanish_Interlocutor_x_Mismatch_Rate_DR_trill.R")
+source("scripts/visuals/liquids/trill/Percent_Spanish_Interlocutor_x_Mismatch_Rate_PR_trill.R")
+
+
+```
+
+
+
+
+
+
+
+#Covariation
+## Language Use & Attitudes
+
+## SIB Variables
+### FPs
+
+```{r FPs}
+
+# PLUS
+source("scripts/visuals/filled_pauses/PLUS_x_RATE_CENTRALIZED_fps.R")
+```
+
+
+
+### Pronouns
+```{r Pronouns}
+source("scripts/visuals/pronouns/PLUS_x_RATE_PRONOUNS_PRESENT.R")
+
+```
+
+
+### Subject Position
+
+```{r Subject-Position}
+source("scripts/visuals/subject_position/PLUS_x_RATE_PREVERBAL_PRONOUNS.R")
+
+```
+
+### Coda S
+
+```{r Coda-s}
+source("scripts/visuals/coda_s/PLUS_x_MISMATCH_RATE_CODA_S.R")
+
+```
+
+
+# Generate plots
+<!-- source("scripts/visualization.R") -->
