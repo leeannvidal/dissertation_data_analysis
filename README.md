@@ -86,8 +86,9 @@ The repo is designed so that:
 │   ├── presentation_visuals/           # Special plots for presentations
 │   └── tables/                         # LaTeX tables for descriptive & statistical results
 └── LVC_Dissertation_Master.Rproj       # Local RStudio project file (ignored in Git)
-
-</details> ```
+```
+</details> 
+```
 
 
 > **Note:** `data/` and `output/` are excluded from GitHub for privacy and reproducibility purposes.  
