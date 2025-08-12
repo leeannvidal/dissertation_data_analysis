@@ -1,7 +1,7 @@
 # Master Project – Liquid Variation Analysis
 
 ![R Version](https://img.shields.io/badge/R-%3E%3D4.0-blue)
-[![License](https://img.shields.io/github/license/leeannvidal/dissertation_data_analysis)](LICENSE)
+[![Code License: MIT](https://img.shields.io/github/license/leeannvidal/dissertation_data_analysis)](LICENSE)
 [![Docs License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Docs%20License-CC%20BY--NC--ND%204.0-lightgrey.svg)](LICENSE-docs.md)
 ![Last Updated](https://img.shields.io/github/last-commit/leeannvidal/dissertation_data_analysis)
 
@@ -90,8 +90,9 @@ The repo is designed so that:
   ```
   
   7. Open `docs/project_overview.Rmd` in RStudio and run it section-by-section to reproduce the analysis and visuals.  
-   The file is organized as a **build** —each section represents a step in the analysis pipeline that was developed incrementally while working on the dissertation.  
-   This allows you to execute and inspect results at each stage rather than rendering the entire file in one pass.
+  
+> Note: The file is organized as a **build** —each section represents a step in the analysis pipeline that was developed incrementally while working on the dissertation.  
+> This allows you to execute and inspect results at each stage rather than rendering the entire file in one pass.
 
 # Workflow Overview
   1. Data Loading & Cleaning

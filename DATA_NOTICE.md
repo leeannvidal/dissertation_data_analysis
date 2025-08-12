@@ -1,14 +1,16 @@
-# Documentation & Figures License (CC BY-NC-ND 4.0)
+# Data Availability & Restrictions
 
-This repository's **documentation and figures** (e.g., files in `docs/` and exported plots/tables) are licensed under
-**Creative Commons Attribution–NonCommercial–NoDerivatives 4.0 International**.
+The datasets used in this project are **not** included in this repository and are **not** publicly available.
+They contain sensitive information and are covered by privacy/consent restrictions.
 
-You are free to:
-- **Share** — copy and redistribute the material in any medium or format.
+- Do **not** redistribute any copies of the data.
+- Do **not** attempt to infer, reconstruct, or extract the underlying data from figures or tables.
+- Requests for access will not be granted at this time.
 
-Under the following terms:
-- **Attribution** — You must give appropriate credit.
-- **NonCommercial** — You may not use the material for commercial purposes.
-- **NoDerivatives** — If you remix, transform, or build upon the material, you may not distribute the modified material.
+If a demo is needed, an **anonymized sample** may be provided separately at the author’s discretion.
 
-Full license text: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+---
+
+**Note:**  
+The code in this repository is licensed separately under the [MIT License](LICENSE).
