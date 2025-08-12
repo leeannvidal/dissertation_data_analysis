@@ -85,7 +85,7 @@ The repo is designed so that:
   ```
   - to create token count `.tex` files for LaTeX.
   6. Load cleaned data for analysis:
-    ```r 
+  ```r 
   source("scripts/load_cleaned_dataframes.R")
   ```
   
