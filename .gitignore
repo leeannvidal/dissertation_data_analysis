@@ -1,3 +1,31 @@
-data/
-output/
-*.pdf
+# === Project-specific ignores ===
+data/                               # local raw data files (not for sharing in repo)
+output/                             # generated results, plots, tables, etc.
+
+# Ignore all PDFs except one specific file
+*.pdf                               # ignore all PDFs by default
+!docs/Coding_Manual_Liquids.pdf     # exception: keep this manual in version control
+
+# === RStudio files ===
+*.Rproj                             # RStudio project file (personal settings)
+.Rproj.user/                        # RStudio project user data (window layout, prefs)
+
+# === R session files ===
+.Rhistory                           # command history from R sessions
+.RData                              # saved R workspace image
+.Ruserdata                          # RStudio user settings
+.Rapp.history                       # R app-specific history file
+
+# === OS-generated junk ===
+.DS_Store                           # macOS Finder metadata
+Thumbs.db                           # Windows Explorer metadata
+
+# === Temporary / cache directories ===
+cache/                              # generic cache directory
+
+# === R Markdown / knitr artifacts ===
+*_cache/                            # knitr cache folders (code chunk results)
+cache_*/                            # alternative cache naming patterns
+*.utf8.md                           # intermediate markdown (UTF-8 encoding)
+*.knit.md                           # intermediate markdown created during knitting
+*.html                              # knitted HTML reports (ignore unless you want them tracked)
