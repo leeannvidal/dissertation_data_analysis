@@ -88,6 +88,7 @@ The repo is designed so that:
     ```r 
   source("scripts/load_cleaned_dataframes.R")
   ```
+  
   7. Open `docs/project_overview.Rmd` in RStudio and run it section-by-section to reproduce the analysis and visuals.  
    The file is organized as a **build** —each section represents a step in the analysis pipeline that was developed incrementally while working on the dissertation.  
    This allows you to execute and inspect results at each stage rather than rendering the entire file in one pass.
