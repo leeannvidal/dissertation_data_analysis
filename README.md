@@ -1,8 +1,14 @@
 # Master Project – Liquid Variation Analysis
 
 ![R Version](https://img.shields.io/badge/R-%3E%3D4.0-blue)
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
+[![License](https://img.shields.io/github/license/leeannvidal/dissertation_data_analysis)](LICENSE)
+[![Docs License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Docs%20License-CC%20BY--NC--ND%204.0-lightgrey.svg)](LICENSE-docs.md)
 ![Last Updated](https://img.shields.io/github/last-commit/leeannvidal/dissertation_data_analysis)
+
+> **Data availability:** The datasets used in this project are **not** included and are **not** public.  
+> See [DATA_NOTICE.md](DATA_NOTICE.md) for details.  
+> **Licensing:** Code → [MIT](LICENSE). Docs & figures → [CC BY-NC-ND 4.0](LICENSE-docs.md).
+
 
 This project analyzes **liquid variation** along with five other linguistic variables to uncover patterns of covariation.  
 It includes **data preprocessing**, **exploratory analysis**, **modeling**, and **result visualization**.  
@@ -50,47 +56,6 @@ The repo is designed so that:
 └── LVC_Dissertation_Master.Rproj      # Local RStudio project file (ignored in Git)
 ```
 
-```markdown
-<details>
-<summary><strong>Project Structure (click to expand)</strong></summary>
-
-```text
-.
-├── .gitignore                        # Git ignore rules
-├── docs/                              # Documentation & R Markdown
-│   ├── Coding_Manual_Liquids.pdf      # Methodology and coding manual
-│   ├── project_overview.Rmd           # Orchestrates the full analysis workflow
-│   └── README                         # Supporting documentation
-├── functions/                         # Custom R functions for analysis & plotting
-│   ├── add_name_stat.R
-│   ├── basic_custom_theme.R
-│   ├── model_summary_labels_for_visuals.R
-│   └── ... (other helper functions)
-├── scripts/                           # Analysis scripts
-│   ├── data_preprocessing/            # Load, clean, and prepare raw data
-│   │   ├── clean_fps.R
-│   │   ├── clean_liquids.R
-│   │   └── ...  
-│   ├── descriptive_tables/            # Generate summary & descriptive tables
-│   ├── statistical_analysis/          # Statistical models & regression scripts
-│   ├── visuals/                        # Plotting scripts by variable type
-│   ├── load_packages.R                 # Install & load required packages
-│   ├── load_cleaned_dataframes.R       # Load cleaned datasets into the R session
-│   └── initialize_fonts.R              # Load fonts for consistent plotting
-├── data/                               # (ignored) Raw & processed data
-│   ├── cleaned_data/                   # Cleaned .rds dataframes
-│   ├── regressions/                    # Saved model objects
-│   └── token_counts/                   # LaTeX .tex files with token counts
-├── output/                             # (ignored) Generated outputs
-│   ├── plots/                          # PDF figures by variable type
-│   ├── presentation_visuals/           # Special plots for presentations
-│   └── tables/                         # LaTeX tables for descriptive & statistical results
-└── LVC_Dissertation_Master.Rproj       # Local RStudio project file (ignored in Git)
-```
-</details> 
-```
-
-
 > **Note:** `data/` and `output/` are excluded from GitHub for privacy and reproducibility purposes.  
 > An anonymized sample dataset can be provided in `data-sample/` for demonstration.
 
@@ -123,7 +88,9 @@ The repo is designed so that:
     ```r 
   source("scripts/load_cleaned_dataframes.R")
   ```
-  7. Render `docs/project_overview.Rmd` to reproduce the full analysis and visuals.
+  7. Open `docs/project_overview.Rmd` in RStudio and run it section-by-section to reproduce the analysis and visuals.  
+   The file is organized as a **build** —each section represents a step in the analysis pipeline that was developed incrementally while working on the dissertation.  
+   This allows you to execute and inspect results at each stage rather than rendering the entire file in one pass.
 
 # Workflow Overview
   1. Data Loading & Cleaning

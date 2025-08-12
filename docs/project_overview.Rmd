@@ -100,7 +100,7 @@ source("scripts/data_preprocessing/preprocess_laterals.R")
 
 ```
 
-# Descriptive Tables for Methodology
+# Descriptive Visuals for Methodology
 ```{r eval=FALSE, include=FALSE}
 #Only run this if something needs to be changed with the tables in LaTeX. Some manual adjustments will need to be done in LaTeX
 
@@ -113,7 +113,7 @@ source("scripts/data_preprocessing/preprocess_laterals.R")
 
 ```
 
-# Basic Descriptive Visuals
+# Basic Descriptive Visuals for all Variables
 
 ## SIB Proportional Distribution
 ```{r load-visuals-SIB-variables-proportion-distribution, echo=FALSE}
@@ -148,7 +148,7 @@ source("scripts/visuals/liquids/all_liquids/liquid_distribution_surface_forms.R"
 ```
 
 
-# Perform data analysis
+# Data analysis
 
 ## Liquids
 
@@ -387,7 +387,7 @@ source("scripts/visuals/liquids/trill/Percent_Spanish_Interlocutor_x_Mismatch_Ra
 
 
 
-#Covariation
+##Covariation
 ## Language Use & Attitudes
 
 ## SIB Variables
@@ -422,6 +422,3 @@ source("scripts/visuals/coda_s/PLUS_x_MISMATCH_RATE_CODA_S.R")
 
 ```
 
-
-# Generate plots
-<!-- source("scripts/visualization.R") -->
