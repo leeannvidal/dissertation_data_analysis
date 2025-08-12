@@ -25,35 +25,39 @@ The repo is designed so that:
 ```text
 .
 ├── .gitignore                        # Git ignore rules
-├── docs/                              # Documentation & R Markdown
-│   ├── Coding_Manual_Liquids.pdf      # Methodology and coding manual
-│   ├── project_overview.Rmd           # Orchestrates the full analysis workflow
-│   └── README                         # Supporting documentation
-├── functions/                         # Custom R functions for analysis & plotting
-│   ├── add_name_stat.R
-│   ├── basic_custom_theme.R
-│   ├── model_summary_labels_for_visuals.R
-│   └── ... (other helper functions)
-├── scripts/                           # Analysis scripts
-│   ├── data_preprocessing/            # Load, clean, and prepare raw data
-│   │   ├── clean_fps.R
-│   │   ├── clean_liquids.R
-│   │   └── ...
-│   ├── descriptive_tables/            # Generate summary & descriptive tables
-│   ├── statistical_analysis/          # Statistical models & regression scripts
-│   ├── visuals/                       # Plotting scripts by variable type
-│   ├── load_packages.R                # Install & load required packages
-│   ├── load_cleaned_dataframes.R      # Load cleaned datasets into the R session
-│   └── initialize_fonts.R             # Load fonts for consistent plotting
+├── LICENSE                           # MIT License for code
+├── LICENSE-docs.md                   # CC BY-NC-ND 4.0 license for docs/figures
+├── DATA_NOTICE.md                    # Data availability & restrictions
+├── README.md                         # Project overview & usage
+├── LVC_Dissertation_Master.Rproj     # Local RStudio project file (ignored)
+│
 ├── data/                              # (ignored) Raw & processed data
 │   ├── cleaned_data/                  # Cleaned .rds dataframes
 │   ├── regressions/                   # Saved model objects
 │   └── token_counts/                  # LaTeX .tex files with token counts
+│
+├── docs/                              # Documentation & R Markdown
+│   ├── Coding_Manual_Liquids.pdf      # Methodology and coding manual
+│   └── project_overview.Rmd           # Orchestrates the analysis workflow
+│
+├── functions/                         # Custom R functions for analysis & plotting
+│   ├── add_name_stat.R
+│   ├── model_summary_labels_for_visuals.R
+│   └── ... (other helper functions)
+│
 ├── output/                            # (ignored) Generated outputs
 │   ├── plots/                         # PDF figures by variable type
-│   ├── presentation_visuals/          # Special plots for presentations
-│   └── tables/                        # LaTeX tables for descriptive & statistical results
-└── LVC_Dissertation_Master.Rproj      # Local RStudio project file (ignored in Git)
+│   ├── presentation_visuals/          # Plots for presentations
+│   └── tables/                        # LaTeX tables (descriptive/statistical)
+│
+├── scripts/                           # Analysis scripts
+│   ├── data_preprocessing/            # Load, clean, and prepare raw data
+│   ├── descriptive_tables/            # Generate descriptive tables
+│   ├── statistical_analysis/           # Statistical models
+│   ├── visuals/                        # Plotting scripts
+│   ├── load_packages.R                 # Install & load required packages
+│   ├── load_cleaned_dataframes.R       # Load cleaned datasets
+│   └── initialize_fonts.R              # Load fonts for consistent plotting
 ```
 
 > **Note:** `data/` and `output/` are excluded from GitHub for privacy and reproducibility purposes.  
