@@ -37,8 +37,8 @@ The repo is designed so that:
 │   └── token_counts/                  # LaTeX .tex files with token counts
 │
 ├── docs/                              # Documentation & R Markdown
-│   ├── Coding_Manual_Liquids.pdf      # Methodology and coding manual
-│   └── project_overview.Rmd           # Orchestrates the analysis workflow
+│   ├── Vidal_Covas_Liquids_Coding_Manual.pdf      # Methodology and coding manual
+│   └── project_overview.Rmd                       # Orchestrates the analysis workflow
 │
 ├── functions/                         # Custom R functions for analysis & plotting
 │   ├── add_name_stat.R

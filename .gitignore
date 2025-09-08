@@ -4,7 +4,8 @@ output/                             # generated results, plots, tables, etc.
 
 # Ignore all PDFs except one specific file
 *.pdf                               # ignore all PDFs by default
-!docs/Coding_Manual_Liquids.pdf     # exception: keep this manual in version control
+#!docs/Coding_Manual_Liquids.pdf     # exception: keep this manual in version control
+!docs/Vidal_Covas_Liquids_Coding_Manual.pdf # exception: keep this manual in version control
 
 # === RStudio files ===
 *.Rproj                             # RStudio project file (personal settings)
