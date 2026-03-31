@@ -30,3 +30,4 @@ cache_*/                            # alternative cache naming patterns
 *.utf8.md                           # intermediate markdown (UTF-8 encoding)
 *.knit.md                           # intermediate markdown created during knitting
 *.html                              # knitted HTML reports (ignore unless you want them tracked)
+.Rproj.user
